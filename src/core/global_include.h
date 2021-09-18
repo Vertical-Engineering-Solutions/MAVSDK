@@ -41,8 +41,8 @@ typedef std::chrono::time_point<std::chrono::system_clock> dl_autopilot_time_t;
 
 class Time {
 public:
-    Time();
-    virtual ~Time();
+    Time() = default;
+    virtual ~Time() = default;
 
     virtual dl_time_t steady_time();
     virtual dl_system_time_t system_time();
@@ -63,14 +63,14 @@ class FakeTime : public Time {
 public:
     FakeTime();
 
-    virtual ~FakeTime();
-    virtual dl_time_t steady_time() override;
-    virtual void sleep_for(std::chrono::hours h) override;
-    virtual void sleep_for(std::chrono::minutes m) override;
-    virtual void sleep_for(std::chrono::seconds s) override;
-    virtual void sleep_for(std::chrono::milliseconds ms) override;
-    virtual void sleep_for(std::chrono::microseconds us) override;
-    virtual void sleep_for(std::chrono::nanoseconds ns) override;
+    ~FakeTime() override;
+    dl_time_t steady_time() override;
+    void sleep_for(std::chrono::hours h) override;
+    void sleep_for(std::chrono::minutes m) override;
+    void sleep_for(std::chrono::seconds s) override;
+    void sleep_for(std::chrono::milliseconds ms) override;
+    void sleep_for(std::chrono::microseconds us) override;
+    void sleep_for(std::chrono::nanoseconds ns) override;
 
 private:
     std::chrono::time_point<std::chrono::steady_clock, std::chrono::nanoseconds> _current{};
