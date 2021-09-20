@@ -30,5 +30,6 @@ add_subdirectory(server_utility)
 add_subdirectory(transponder)
 add_subdirectory(telemetry_server)
 add_subdirectory(tune)
+add_subdirectory(rc_passthrough)
 
 set(UNIT_TEST_SOURCES ${UNIT_TEST_SOURCES} PARENT_SCOPE)
