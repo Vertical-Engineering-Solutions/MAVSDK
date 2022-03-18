@@ -7,8 +7,8 @@ if(NOT @BUILD_SHARED_LIBS@)
         find_dependency(CURL REQUIRED CONFIG)
     endif()
 
-    find_dependency(jsoncpp)
-    find_dependency(tinyxml2)
+    find_package(jsoncpp)
+    find_package(tinyxml2)
 
     if(@BUILD_MAVSDK_SERVER@)
         find_dependency(gRPC)
